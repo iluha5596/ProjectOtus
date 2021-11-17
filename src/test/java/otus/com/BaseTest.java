@@ -25,7 +25,7 @@ public class BaseTest {
     @BeforeClass
     public void startUp() {
         br = System.getProperty("browser").toUpperCase(Locale.ROOT).trim();
-        driver = WebDriverFactory.getDriver(Browsers.valueOf(br));
+        driver = WebDriverFactory.getDriver(Browsers.CHROME);
         logger.info("Драйвер поднят");
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 10);
