@@ -1,14 +1,11 @@
 package otus.com.pages;
-
-import config.ExpectedValues;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import otus.com.BaseTest;
 import otus.com.dto.ActualValues;
 
 public class CourseQaEngineerBasic extends BasePage {
 
-    public CourseQaEngineerBasic(WebDriver driver, ExpectedValues expectedValuesQaEngineerBasic) {
+    public CourseQaEngineerBasic(WebDriver driver) {
         super(driver);
     }
     private By classNameCourse = By.xpath("//h1[@class=\"course-header2__title\"]");

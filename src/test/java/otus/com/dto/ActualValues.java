@@ -48,5 +48,15 @@ public class ActualValues {
     private String durationTrainingQaEngineerBasic;
     private String formatQaEngineerBasic;
 
+    public String getDataСalendarEvents() {
+        return dataСalendarEvents;
+    }
+
+    public void setDataСalendarEvents(String dataСalendarEvents) {
+        this.dataСalendarEvents = dataСalendarEvents;
+    }
+
+    private String dataСalendarEvents;
+
 
 }

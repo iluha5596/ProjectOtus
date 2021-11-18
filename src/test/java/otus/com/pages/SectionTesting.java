@@ -1,6 +1,4 @@
 package otus.com.pages;
-
-import config.ExpectedValues;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,10 +6,9 @@ import otus.com.dto.ActualValues;
 
 public class SectionTesting extends BasePage {
 
-    private ExpectedValues expectedValues;
-    public SectionTesting(WebDriver driver, ExpectedValues expectedValues) {
+    public SectionTesting(WebDriver driver) {
         super(driver);
-        this.expectedValues = expectedValues;
+
     }
     private By classCourse = By.xpath("//div[@class=\"lessons__new-item-bg-right\"]");
     private By hrefQaEngineerBasic = By.xpath("//a[@href=\"/lessons/qa-engineer/?int_source=courses_catalog&int_term=testing\"]");

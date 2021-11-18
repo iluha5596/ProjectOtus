@@ -11,6 +11,8 @@ public class MainPage extends  BasePage {
     }
     private By textСourse = By.xpath("(//p[text()=\"Курсы\"])[1]");
     private By titleTesting = By.xpath("(//a[@title=\"Тестирование\"])[1]");
+    private By textEvent = By.xpath("(//p[text()=\"События\"])[1]");
+    private By hrefСalendarEvents = By.xpath("//a[@href=\"/events/near/\"]");
 
     public void goTestingSection() {
         driver.findElement(textСourse).click();
@@ -19,6 +21,10 @@ public class MainPage extends  BasePage {
 
     }
 
+    public void goСalendarEvents() {
+        driver.findElement(textEvent).click();
+        driver.findElement(hrefСalendarEvents).click();
 
+    }
 
 }
