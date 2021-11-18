@@ -1,5 +1,7 @@
 package otus.com.dto;
 
+import java.util.Date;
+
 public class ActualValues {
     public int getNumberCourses() {
         return numberCourses;
@@ -48,15 +50,16 @@ public class ActualValues {
     private String durationTrainingQaEngineerBasic;
     private String formatQaEngineerBasic;
 
-    public String getDataСalendarEvents() {
-        return dataСalendarEvents;
+
+    public Date getActualDataEvent() {
+        return actualDataEvent;
     }
 
-    public void setDataСalendarEvents(String dataСalendarEvents) {
-        this.dataСalendarEvents = dataСalendarEvents;
+    public void setActualDataEvent(Date actualDataEvats) {
+        this.actualDataEvent = actualDataEvats;
     }
 
-    private String dataСalendarEvents;
+    private Date actualDataEvent;
 
 
 }

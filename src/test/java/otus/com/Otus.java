@@ -62,7 +62,7 @@ public class Otus extends BaseTest {
 
     //Валидация дат предстоящих мероприятий
     @Test
-    private void checkingDatesUpcomingEvents() {
+    private void checkingDatesUpcomingEvents() throws ParseException {
         //Открытие главной страницы Otus
         Authorization authorization = new Authorization(driver);
         authorization.openOtus();
@@ -72,12 +72,17 @@ public class Otus extends BaseTest {
         //Дата предстоящего мероприятия
         СalendarEvents actualDatesUpcomingEvents = new СalendarEvents(driver);
         ActualValues actualValues = actualDatesUpcomingEvents.dataСalendarEvents();
-
         //Определение сегодняшнего дня
-        DateFormat dateFormat = new SimpleDateFormat("d M");
+        DateFormat dateFormat = new SimpleDateFormat("d.M");
         Date date = new Date();
         String nowDate = dateFormat.format(date);
+        Date dateExpected = new SimpleDateFormat("d.M").parse(nowDate);
         //Проверка даты предстоящего мероприятия с сегодняшней датой
+        if (dateExpected.compareTo(actualValues.getActualDataEvent()) >= 0) {
+            logger.info("Валидация дат предстоящих мероприятий пройдена"); }
+        else if (dateExpected.compareTo(actualValues.getActualDataEvent()) < 0) {
+            System.out.println("Валидация дат предстоящих мероприятий НЕ пройдена");
+        }
 
     }
 
@@ -127,6 +132,8 @@ public class Otus extends BaseTest {
         System.out.println(firstString);
         String lastString = s.split(" ")[1];
         System.out.println(lastString);
+
+        System.out.println(firstString+"."+lastString);
 
     }
 }

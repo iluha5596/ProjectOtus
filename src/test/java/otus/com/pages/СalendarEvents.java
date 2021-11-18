@@ -6,6 +6,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import otus.com.dto.ActualValues;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class СalendarEvents extends BasePage {
 
@@ -15,12 +19,28 @@ public class СalendarEvents extends BasePage {
     private By classEvant = By.xpath("(//div[@class=\"dod_new-event-content\"])[1]");
     private By classDataEvant = By.xpath("(//span[@class=\"dod_new-event__date-text\"])[1]");
 
-    public ActualValues dataСalendarEvents () {
+    public ActualValues dataСalendarEvents () throws ParseException {
         wait.until(ExpectedConditions.elementToBeClickable(classEvant));
         ActualValues actualValues = new ActualValues();
         String actualDataСalendarEvents = driver.findElement(classDataEvant).getText();
 
-        actualValues.setDataСalendarEvents(actualDataСalendarEvents);
+        //Отделение дня от месяцы
+        String day = actualDataСalendarEvents.split(" ")[0];
+        //Отделение месяца от дня
+        String mouth = actualDataСalendarEvents.split(" ")[1];
+        //Получение даты в формате d.M в String
+        SimpleDateFormat inputFormat = new SimpleDateFormat("MMM");
+        Calendar cal = Calendar.getInstance();
+        String monthName = mouth;
+        String monthNameActual =  monthName.replaceFirst(".$","ь");
+        cal.setTime(inputFormat.parse(monthNameActual));
+        SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+        String month = outputFormat.format(cal.getTime());
+        String actualData = day + "." + month;
+        //Преобразование String в Date
+        Date actualDataEvent  = new SimpleDateFormat("d.M").parse(actualData);
+
+        actualValues.setActualDataEvent(actualDataEvent);
 
 
         return actualValues;
