@@ -4,6 +4,7 @@ import config.ServerConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import otus.com.BaseTest;
 import otus.com.dto.ActualValues;
 import otus.com.pages.*;
 import java.text.DateFormat;
@@ -19,10 +20,9 @@ public class Otus extends BaseTest {
     private void checkingNumberCourses() {
         ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
         ExpectedValues expectedValues = ConfigFactory.create(ExpectedValues.class);
-        //Авторизация
+        //Открытие главной страницы Otus
         Authorization authorization = new Authorization(driver);
         authorization.openOtus();
-        authorization.auth(cfg.login(), cfg.password());
         //Переход в раздел Тестирование
         MainPage mainPage = new MainPage(driver);
         mainPage.goTestingSection();
