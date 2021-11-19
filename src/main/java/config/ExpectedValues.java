@@ -8,5 +8,6 @@ public interface ExpectedValues extends Config {
     String nameCourseQaEngineerBasic();
     String specificationCourseQaEngineerBasic();
     String durationTrainingQaEngineerBasic();
-    String formatCourse();
+    String formatCourseQaEngineerBasic();
+    String dod();
 }

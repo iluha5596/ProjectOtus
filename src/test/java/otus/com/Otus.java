@@ -2,6 +2,7 @@ package otus.com;
 import config.ExpectedValues;
 import config.ServerConfig;
 import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import otus.com.dto.ActualValues;
 import otus.com.pages.*;
@@ -51,11 +52,11 @@ public class Otus extends BaseTest {
         sectionTesting.goQaEngineerBasic();
         //Проверка информации по курсу QaEngineerBasic
         CourseQaEngineerBasic actualValueQaEngineerBasic = new CourseQaEngineerBasic(driver);
-        ActualValues actualValues = actualValueQaEngineerBasic.checkingСourseInformation();
+        ActualValues actualValues = actualValueQaEngineerBasic.setСourseInformation();
         assertEquals(expectedValues.nameCourseQaEngineerBasic(), actualValues.getNameCourseQaEngineerBasic());
         assertEquals(expectedValues.specificationCourseQaEngineerBasic(), actualValues.getSpecificationQaEngineerBasic());
         assertEquals(expectedValues.durationTrainingQaEngineerBasic(), actualValues.getDurationTrainingQaEngineerBasic());
-        assertEquals(expectedValues.formatCourse(), actualValues.getFormatQaEngineerBasic());
+        assertEquals(expectedValues.formatCourseQaEngineerBasic(), actualValues.getFormatQaEngineerBasic());
         logger.info("Данные в карточке курса QaEngineerBasic верные");
 
     }
@@ -71,7 +72,7 @@ public class Otus extends BaseTest {
         mainPage.goСalendarEvents();
         //Дата предстоящего мероприятия
         СalendarEvents actualDatesUpcomingEvents = new СalendarEvents(driver);
-        ActualValues actualValues = actualDatesUpcomingEvents.dataСalendarEvents();
+        ActualValues actualValues = actualDatesUpcomingEvents.setDataСalendarEvents();
         //Определение сегодняшнего дня
         DateFormat dateFormat = new SimpleDateFormat("d.M");
         Date date = new Date();
@@ -81,60 +82,32 @@ public class Otus extends BaseTest {
         if (dateExpected.compareTo(actualValues.getActualDataEvent()) >= 0) {
             logger.info("Валидация дат предстоящих мероприятий пройдена"); }
         else if (dateExpected.compareTo(actualValues.getActualDataEvent()) < 0) {
-            System.out.println("Валидация дат предстоящих мероприятий НЕ пройдена");
+            logger.info("Валидация дат предстоящих мероприятий НЕ пройдена");
         }
-
     }
 
     @Test
-    private void month() throws ParseException {
-
-        SimpleDateFormat inputFormat = new SimpleDateFormat("MMM");
-        Calendar cal = Calendar.getInstance();
-        String monthName = "февраля";
-        String monthName2 =  monthName.replaceFirst(".$","ь");
-
-        cal.setTime(inputFormat.parse(monthName2));
-        SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
-        String month = outputFormat.format(cal.getTime());
-        System.out.println(month);
-        String actualData = "18." + month;
-        System.out.println(actualData);
-
-        //Определение сегодняшнего дня
-        DateFormat dateFormat = new SimpleDateFormat("d.M");
-        Date date = new Date();
-        String nowDate = dateFormat.format(date);
-        System.out.println(nowDate);
-
-
-        Date date1 = new SimpleDateFormat("d.M").parse(nowDate);
-        System.out.println(date1);
-
-        Date date2 = new SimpleDateFormat("d.M").parse(actualData);
-        System.out.println(date2);
-
-        if (date1.compareTo(date2) >= 0) {
-            System.out.println("Date1 больше или равна Date2"); }
-            else if (date1.compareTo(date2) < 0) {
-            System.out.println("Date1 меньше Date2");
+    private void viewEventsType() {
+        ExpectedValues expectedValues = ConfigFactory.create(ExpectedValues.class);
+        //Открытие главной страницы Otus
+        Authorization authorization = new Authorization(driver);
+        authorization.openOtus();
+        //Переход в раздел Календарь мероприятий
+        MainPage mainPage = new MainPage(driver);
+        mainPage.goСalendarEvents();
+        //Выбрать ДОД
+        СalendarEvents сalendarEvents = new СalendarEvents(driver);
+        сalendarEvents.goDod();
+        //Проверка мероприятий по типу
+        СalendarEvents actualNumberEventDod = new СalendarEvents(driver);
+        ActualValues actualValues = actualNumberEventDod.countingEventDod();
+        for (int i=1; i<=actualValues.getActualNumberEventDod(); i++){
+            String actualDod = driver.findElement(By.xpath("//div[@class=\"dod_new-type__text\"]")).getText();
+            assertEquals(expectedValues.dod(),actualDod);
         }
-
-
-
-        }
-
-
-    @Test
-    private void tst() {
-        String s = "11 ноября";
-        String firstString = s.split(" ")[0];
-        System.out.println(firstString);
-        String lastString = s.split(" ")[1];
-        System.out.println(lastString);
-
-        System.out.println(firstString+"."+lastString);
+        logger.info("Проверка мероприятий по типу прошла успешно");
 
     }
+
 }
 

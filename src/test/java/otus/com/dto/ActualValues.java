@@ -61,5 +61,15 @@ public class ActualValues {
 
     private Date actualDataEvent;
 
+    public int getActualNumberEventDod() {
+        return actualNumberEventDod;
+    }
+
+    public void setActualNumberEventDod(int actualNumberEventDod) {
+        this.actualNumberEventDod = actualNumberEventDod;
+    }
+
+    private int actualNumberEventDod;
+
 
 }

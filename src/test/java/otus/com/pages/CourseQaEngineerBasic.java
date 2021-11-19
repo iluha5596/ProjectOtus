@@ -13,7 +13,7 @@ public class CourseQaEngineerBasic extends BasePage {
     private By classDurationTraining  = By.xpath("(//div[@class=\"course-header2-bottom__item\"])[2]");
     private By classFormatCourse = By.xpath("(//p[@class=\"course-header2-bottom__item-text\"])[2]");
 
-    public ActualValues checkingСourseInformation() {
+    public ActualValues setСourseInformation() {
         ActualValues actualValues = new ActualValues();
         String actualNameCourse = driver.findElement(classNameCourse).getText();
         String actualSpecificationCourse = driver.findElement(classSpecificationCourse).getText();
