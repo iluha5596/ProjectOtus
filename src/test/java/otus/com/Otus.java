@@ -9,7 +9,6 @@ import otus.com.pages.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -58,6 +57,17 @@ public class Otus extends BaseTest {
         assertEquals(expectedValues.durationTrainingQaEngineerBasic(), actualValues.getDurationTrainingQaEngineerBasic());
         assertEquals(expectedValues.formatCourseQaEngineerBasic(), actualValues.getFormatQaEngineerBasic());
         logger.info("Данные в карточке курса QaEngineerBasic верные");
+        driver.navigate().back();
+        //Переход на курс GameQAEngineer
+        sectionTesting.goGameQAEngineer();
+        //Проверка информации по курсу GameQAEngineer
+        CourseGameQAEngineer actualValue = new CourseGameQAEngineer(driver);
+        ActualValues actualValuesGameQAEngineer = actualValue.setСourseInformationGameQAEngineer();
+        assertEquals(expectedValues.nameCourseGameQAEngineer(), actualValuesGameQAEngineer.getNameCourseGameQAEngineer());
+        assertEquals(expectedValues.durationTrainingGameQAEngineer(), actualValuesGameQAEngineer.getDurationTrainingGameQAEngineer());
+        assertEquals(expectedValues.formatCourseGameQAEngineer(), actualValuesGameQAEngineer.getFormatGameQAEngineer());
+        logger.info("Данные в карточке курса GameQAEngineer верные");
+
 
     }
 
@@ -79,9 +89,9 @@ public class Otus extends BaseTest {
         String nowDate = dateFormat.format(date);
         Date dateExpected = new SimpleDateFormat("d.M").parse(nowDate);
         //Проверка даты предстоящего мероприятия с сегодняшней датой
-        if (dateExpected.compareTo(actualValues.getActualDataEvent()) >= 0) {
+        if (dateExpected.compareTo(actualValues.getActualDataEvent()) <= 0) {
             logger.info("Валидация дат предстоящих мероприятий пройдена"); }
-        else if (dateExpected.compareTo(actualValues.getActualDataEvent()) < 0) {
+        else if (dateExpected.compareTo(actualValues.getActualDataEvent()) > 0) {
             logger.info("Валидация дат предстоящих мероприятий НЕ пройдена");
         }
     }
@@ -106,7 +116,6 @@ public class Otus extends BaseTest {
             assertEquals(expectedValues.dod(),actualDod);
         }
         logger.info("Проверка мероприятий по типу прошла успешно");
-
     }
 
 }

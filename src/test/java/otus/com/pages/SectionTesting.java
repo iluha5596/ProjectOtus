@@ -12,7 +12,7 @@ public class SectionTesting extends BasePage {
     }
     private By classCourse = By.xpath("//div[@class=\"lessons__new-item-bg-right\"]");
     private By hrefQaEngineerBasic = By.xpath("//a[@href=\"/lessons/qa-engineer/?int_source=courses_catalog&int_term=testing\"]");
-    private By titleLeaveRequest  = By.xpath("//button[@title=\"Оставить заявку\"]");
+    private By imgGameQAEngineer  = By.xpath("//a[@href=\"/lessons/qa-game/?int_source=courses_catalog&int_term=testing\"]");
 
 
     public ActualValues countingNumberCourses () {
@@ -26,7 +26,15 @@ public class SectionTesting extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(hrefQaEngineerBasic));
         driver.findElement(hrefQaEngineerBasic).click();
         logger.info("Курс QaEngineerBasic открыт");
-        wait.until(ExpectedConditions.elementToBeClickable(titleLeaveRequest));
+
+    }
+
+    public void goGameQAEngineer() {
+        wait.until(ExpectedConditions.elementToBeClickable(imgGameQAEngineer));
+        driver.findElement(imgGameQAEngineer).click();
+        logger.info("Курс GameQAEngineer открыт");
+
+
 
     }
 

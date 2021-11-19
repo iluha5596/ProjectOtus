@@ -19,7 +19,6 @@ public class СalendarEvents extends BasePage {
     private By classDataEvent = By.xpath("(//span[@class=\"dod_new-event__date-text\"])[1]");
     private By classChoiceEvent = By.xpath("(//span[@class=\"dod_new-events-dropdown__input-selected\"])[1]");
     private By hrefDod = By.xpath("(//a[@href=\"/events/near/open_doors/\"])[1]");
-    private By classDod = By.xpath("//div[@class=\"dod_new-type__text\"]");
 
     public ActualValues setDataСalendarEvents () throws ParseException {
         wait.until(ExpectedConditions.elementToBeClickable(classEvent));
