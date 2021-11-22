@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" parallel="classes" thread-count="4">
+    <test name="Regression_Otus">
+        <classes>
+            <class name="otus.com.regressTests.CheckNumberCourses"/>
+            <class name="otus.com.regressTests.CheckEventsType"/>
+            <class name="otus.com.regressTests.CheckDatesUpcomingEvents"/>
+            <class name="otus.com.regressTests.CheckCourseInformation"/>
+        </classes>
+    </test>
+</suite>
