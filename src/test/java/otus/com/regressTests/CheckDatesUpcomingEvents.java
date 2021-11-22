@@ -14,6 +14,7 @@ import java.util.Date;
 
 public class CheckDatesUpcomingEvents extends BaseTest {
 
+    //Валидация дат предстоящих мероприятий
     @Test
     private void checkingDatesUpcomingEvents() throws ParseException {
         //Открытие главной страницы Otus

@@ -13,6 +13,8 @@ import otus.com.pages.СalendarEvents;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class CheckEventsType extends BaseTest {
+
+    //Проверка типа мероприятий
     @Test
     private void viewEventsType() {
         ExpectedValues expectedValues = ConfigFactory.create(ExpectedValues.class);

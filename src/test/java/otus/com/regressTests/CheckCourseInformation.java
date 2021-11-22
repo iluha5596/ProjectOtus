@@ -11,6 +11,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class CheckCourseInformation extends BaseTest {
 
+    //Проверка карточки курса
     @Test
     private void сheckingCourseInformation() {
         ExpectedValues expectedValues = ConfigFactory.create(ExpectedValues.class);

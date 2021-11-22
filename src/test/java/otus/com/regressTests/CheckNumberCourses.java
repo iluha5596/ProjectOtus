@@ -12,27 +12,23 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class CheckNumberCourses extends BaseTest {
 
-    public class checkNumberCourses {
+    //Проверка количества курсов в разделе тестирование
+    @Test
+    private void checkingNumberCourses() {
+        ExpectedValues expectedValues = ConfigFactory.create(ExpectedValues.class);
+        //Открытие главной страницы Otus
+        Authorization authorization = new Authorization(driver);
+        authorization.openOtus();
+        //Переход в раздел Тестирование
+        MainPage mainPage = new MainPage(driver);
+        mainPage.goTestingSection();
+        //Проверка количества курсов
+        SectionTesting sectionTesting = new SectionTesting(driver);
+        sectionTesting.countingNumberCourses();
+        SectionTesting actualNumberCourses = new SectionTesting(driver);
+        ActualValues actualValues = actualNumberCourses.countingNumberCourses();
+        assertEquals(actualValues.getNumberCourses(), expectedValues.numberCoursesTesting());
+        logger.info("Количества курсов в разделе тестирование верное");
 
-        //Проверка количества курсов в разделе тестирование
-        @Test
-        private void checkingNumberCourses() {
-            ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
-            ExpectedValues expectedValues = ConfigFactory.create(ExpectedValues.class);
-            //Открытие главной страницы Otus
-            Authorization authorization = new Authorization(driver);
-            authorization.openOtus();
-            //Переход в раздел Тестирование
-            MainPage mainPage = new MainPage(driver);
-            mainPage.goTestingSection();
-            //Проверка количества курсов
-            SectionTesting sectionTesting = new SectionTesting(driver);
-            sectionTesting.countingNumberCourses();
-            SectionTesting actualNumberCourses = new SectionTesting(driver);
-            ActualValues actualValues = actualNumberCourses.countingNumberCourses();
-            assertEquals(actualValues.getNumberCourses(), expectedValues.numberCoursesTesting());
-            logger.info("Количества курсов в разделе тестирование верное");
-
-        }
     }
 }
