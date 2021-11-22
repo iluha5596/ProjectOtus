@@ -28,9 +28,8 @@ dependencies {
 
 test {
     useTestNG()  {
-        suites 'src/test/resources/testNg.xml'
+        suites 'src/main/resources/testNg.xml'
     }
     systemProperty 'browser', System.getProperty('browser')
-
 }
 
