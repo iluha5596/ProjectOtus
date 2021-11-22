@@ -4,13 +4,11 @@ import config.ServerConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import otus.com.BaseTest;
 import otus.com.dto.ActualValues;
 import otus.com.pages.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import static org.testng.AssertJUnit.assertEquals;
 
