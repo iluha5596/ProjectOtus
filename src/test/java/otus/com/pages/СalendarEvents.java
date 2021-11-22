@@ -24,7 +24,6 @@ public class СalendarEvents extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(classEvent));
         ActualValues actualValues = new ActualValues();
         String actualDataСalendarEvents = driver.findElement(classDataEvent).getText();
-
         //Отделение дня от месяцы
         String day = actualDataСalendarEvents.split(" ")[0];
         //Отделение месяца от дня
@@ -32,16 +31,40 @@ public class СalendarEvents extends BasePage {
         //Получение даты в формате d.M в String
         SimpleDateFormat inputFormat = new SimpleDateFormat("MMM");
         Calendar cal = Calendar.getInstance();
+        String marth  = "марта";
+        String august = "августа";
+        String may = "мая";
         String monthName = mouth;
-        String monthNameActual =  monthName.replaceFirst(".$","ь");
-        cal.setTime(inputFormat.parse(monthNameActual));
-        SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
-        String month = outputFormat.format(cal.getTime());
-        String actualData = day + "." + month;
-        //Преобразование String в Date
-        Date actualDataEvent  = new SimpleDateFormat("d.M").parse(actualData);
-
-        actualValues.setActualDataEvent(actualDataEvent);
+        if (monthName==  marth | monthName == august ) {
+            String monthNameActual =  monthName.replaceFirst(".$"," ");
+            cal.setTime(inputFormat.parse(monthNameActual));
+            SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+            String month = outputFormat.format(cal.getTime());
+            String actualData = day + "." + month;
+            //Преобразование String в Date
+            Date actualDataEvent  = new SimpleDateFormat("d.M").parse(actualData);
+            actualValues.setActualDataEvent(actualDataEvent);
+        }
+        else if (monthName == may) {
+            String monthNameActual =  monthName.replaceFirst(".$","й");
+            cal.setTime(inputFormat.parse(monthNameActual));
+            SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+            String month = outputFormat.format(cal.getTime());
+            String actualData = day + "." + month;
+            //Преобразование String в Date
+            Date actualDataEvent  = new SimpleDateFormat("d.M").parse(actualData);
+            actualValues.setActualDataEvent(actualDataEvent);
+        }
+        else {
+            String monthNameActual =  monthName.replaceFirst(".$","ь");
+            cal.setTime(inputFormat.parse(monthNameActual));
+            SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+            String month = outputFormat.format(cal.getTime());
+            String actualData = day + "." + month;
+            //Преобразование String в Date
+            Date actualDataEvent  = new SimpleDateFormat("d.M").parse(actualData);
+            actualValues.setActualDataEvent(actualDataEvent);
+        }
         return actualValues;
     }
 

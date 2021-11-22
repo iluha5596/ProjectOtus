@@ -29,7 +29,6 @@ public class BaseTest {
         logger.info("Драйвер поднят");
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 10);
-
     }
 
     @AfterMethod

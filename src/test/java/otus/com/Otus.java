@@ -10,6 +10,7 @@ import otus.com.pages.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -67,8 +68,6 @@ public class Otus extends BaseTest {
         assertEquals(expectedValues.durationTrainingGameQAEngineer(), actualValuesGameQAEngineer.getDurationTrainingGameQAEngineer());
         assertEquals(expectedValues.formatCourseGameQAEngineer(), actualValuesGameQAEngineer.getFormatGameQAEngineer());
         logger.info("Данные в карточке курса GameQAEngineer верные");
-
-
     }
 
     //Валидация дат предстоящих мероприятий
