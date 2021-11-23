@@ -13,7 +13,7 @@ public class CheckCourseInformation extends BaseTest {
 
     //Проверка карточки курса
     @Test
-    private void сheckingCourseInformation() {
+    public void сheckingCourseInformation() {
         ExpectedValues expectedValues = ConfigFactory.create(ExpectedValues.class);
         //Открытие главной страницы Otus
         Authorization authorization = new Authorization(driver);

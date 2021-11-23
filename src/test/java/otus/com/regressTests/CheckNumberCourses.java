@@ -14,7 +14,7 @@ public class CheckNumberCourses extends BaseTest {
 
     //Проверка количества курсов в разделе тестирование
     @Test
-    private void checkingNumberCourses() {
+    public void checkingNumberCourses() {
         ExpectedValues expectedValues = ConfigFactory.create(ExpectedValues.class);
         //Открытие главной страницы Otus
         Authorization authorization = new Authorization(driver);

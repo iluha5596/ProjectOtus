@@ -16,7 +16,7 @@ public class CheckDatesUpcomingEvents extends BaseTest {
 
     //Валидация дат предстоящих мероприятий
     @Test
-    private void checkingDatesUpcomingEvents() throws ParseException {
+    public void checkingDatesUpcomingEvents() throws ParseException {
         //Открытие главной страницы Otus
         Authorization authorization = new Authorization(driver);
         authorization.openOtus();

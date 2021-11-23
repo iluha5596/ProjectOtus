@@ -16,7 +16,7 @@ public class CheckEventsType extends BaseTest {
 
     //Проверка типа мероприятий
     @Test
-    private void viewEventsType() {
+    public void viewEventsType() {
         ExpectedValues expectedValues = ConfigFactory.create(ExpectedValues.class);
         //Открытие главной страницы Otus
         Authorization authorization = new Authorization(driver);

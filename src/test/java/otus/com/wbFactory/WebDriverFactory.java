@@ -6,19 +6,17 @@ import org.openqa.selenium.opera.OperaDriver;
 
 public class WebDriverFactory {
 
-    private static WebDriver driver;
-
-    public static WebDriver getDriver (Browsers br) {
+    public static WebDriver getDriver(Browsers br) {
         switch (br) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
+                return new ChromeDriver();
             case OPERA:
                 WebDriverManager.operadriver().setup();
-                driver = new OperaDriver();
-                break;
+                return new OperaDriver();
+            default:
+                WebDriverManager.chromedriver().setup();
+                return new ChromeDriver();
         }
-        return driver;
     }
 }
