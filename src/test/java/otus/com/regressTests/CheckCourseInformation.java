@@ -43,8 +43,7 @@ public class CheckCourseInformation extends BaseTest {
         assertEquals(expectedValues.nameCourseGameQAEngineer(), actualValuesGameQAEngineer.getNameCourseGameQAEngineer());
         assertEquals(expectedValues.durationTrainingGameQAEngineer(), actualValuesGameQAEngineer.getDurationTrainingGameQAEngineer());
         assertEquals(expectedValues.formatCourseGameQAEngineer(), actualValuesGameQAEngineer.getFormatGameQAEngineer());
-        assertTrue((actualValuesGameQAEngineer.getSpecificationGameQAEngineer()).contains("Стань тестировщиком любых игр: мобильные, консольные, браузерные и ПК"));
-       // assertEquals(expectedValues.specificationGameQAEngineer(), actualValuesGameQAEngineer.getSpecificationGameQAEngineer());
+        assertEquals(expectedValues.specificationGameQAEngineer(), actualValuesGameQAEngineer.getSpecificationGameQAEngineer());
         logger.info("Данные в карточке курса GameQAEngineer верные");
     }
 }
