@@ -36,6 +36,8 @@ public class CheckDatesUpcomingEvents extends BaseTest {
             logger.info("Валидация дат предстоящих мероприятий пройдена"); }
         else if (dateExpected.compareTo(actualValues.getActualDataEvent()) > 0) {
             logger.info("Валидация дат предстоящих мероприятий НЕ пройдена");
+            throw new java.lang.Error("Валидация дат предстоящих мероприятий НЕ пройдена");
+
         }
     }
 }
