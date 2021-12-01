@@ -13,7 +13,7 @@ public class CourseQaEngineerBasic extends BasePage {
     private By classSpecificationCourse = By.xpath("//div[@class=\"course-header2__admin-text\"]");
     private By classDurationTraining  = By.xpath("(//div[@class=\"course-header2-bottom__item\"])[2]");
     private By classFormatCourse = By.xpath("(//p[@class=\"course-header2-bottom__item-text\"])[2]");
-    private By titleLeaveRequest  = By.xpath("//button[@title=\"Оставить заявку\"]");
+    private By titleLeaveRequest  = By.xpath("//button[@title=\"Успеть на курс\"]");
 
 
     public ActualValues setСourseInformation() {
