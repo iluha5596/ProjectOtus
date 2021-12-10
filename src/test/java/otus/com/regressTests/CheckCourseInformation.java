@@ -42,7 +42,6 @@ public class CheckCourseInformation extends BaseTest {
         ActualValues actualValuesGameQAEngineer = actualValue.setСourseInformationGameQAEngineer();
         assertEquals(expectedValues.nameCourseGameQAEngineer(), actualValuesGameQAEngineer.getNameCourseGameQAEngineer());
         assertEquals(expectedValues.durationTrainingGameQAEngineer(), actualValuesGameQAEngineer.getDurationTrainingGameQAEngineer());
-        assertEquals(expectedValues.formatCourseGameQAEngineer(), actualValuesGameQAEngineer.getFormatGameQAEngineer());
         assertEquals(expectedValues.specificationGameQAEngineer(), actualValuesGameQAEngineer.getSpecificationGameQAEngineer());
         logger.info("Данные в карточке курса GameQAEngineer верные");
     }

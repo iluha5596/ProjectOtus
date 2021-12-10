@@ -14,7 +14,7 @@ public class CourseGameQAEngineer extends BasePage{
     private By classSpecificationCourse = By.xpath("//div[@class=\"course-header2__admin-text\"]");
     private By classDurationTraining  = By.xpath("(//div[@class=\"course-header2-bottom__item\"])[2]");
     private By classFormatCourse = By.xpath("(//p[@class=\"course-header2-bottom__item-text\"])[2]");
-    private By titleLeaveRequest  = By.xpath("(//button[@title=\"Успеть на курс\"])[1]");
+    private By titleLeaveRequest  = By.xpath("(//button[@data-goal=\"click_course_start-remind\"])[1]");
 
     public ActualValues setСourseInformationGameQAEngineer() {
         ActualValues actualValues = new ActualValues();
